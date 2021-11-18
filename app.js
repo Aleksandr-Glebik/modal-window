@@ -7,8 +7,17 @@ btn.onclick = () => {
 
     btnClose.addEventListener('click', closeModal)
 
+    modal.addEventListener('click', hideModal)
+
     function closeModal() {
         modal.classList.remove('modal_active')
         btnClose.removeEventListener('click', closeModal)
+        modal.removeEventListener('click', hideModal)
+    }
+
+    function hideModal(event) {
+        if (event.target === modal) {
+            closeModal()
+        }
     }
 }
